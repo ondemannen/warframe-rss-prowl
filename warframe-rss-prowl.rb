@@ -32,6 +32,7 @@ class String
 	def clr2;  "\e[33m#{self}\e[0m" end
 	def clr3;  "\e[34m#{self}\e[0m" end
 	def clr4;  "\e[35m#{self}\e[0m" end
+	def clr5;  "\e[36m#{self}\e[0m" end
 end
 
 cmd = "/usr/local/bin/prowl.pl -apikey=#{prowl_api_key} -application=warframe -event='_EVENT_' -notification='_TEXT_'"
@@ -41,6 +42,7 @@ def pretty_colors(str)
 	str.gsub!(/(\d?x? Mutagen Mass)/i,'\1'.clr2)
 	str.gsub!(/(\d?x? Detonite Injector)/i,'\1'.clr3)
 	str.gsub!(/(\d?x? Mutalist Nav Coordinate)/i,'\1'.clr4)
+	str.gsub!(/([\w\s]+ \(Aura\))/i,'\1'.clr5)
 	str
 end
 
