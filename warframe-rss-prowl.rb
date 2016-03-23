@@ -1,8 +1,8 @@
 #!/usr/bin/ruby
 # Checks warframe RSS feed and based on a regular expression search will notify you through ProwlApp
-# Usage: ./warframe-rss-reader [regexp search] [prowl]
+# Usage: ./warframe-rss-reader [<regexp search>] [prowl]
 #        If no search is specified all events will show up
-#        If the second argument is present the message will be sent through prowlapp
+#        If the second argument is "prowl" the message will be sent through prowlapp
 require 'rss'
 require 'open-uri'
 
@@ -28,23 +28,22 @@ end
 @fn = File.open(saved, "a")
 
 class String
-	def clr1; "\e[32m#{self}\e[0m" end
-	def clr2;  "\e[33m#{self}\e[0m" end
-	def clr3;  "\e[34m#{self}\e[0m" end
-	def clr4;  "\e[35m#{self}\e[0m" end
-	def clr5;  "\e[36m#{self}\e[0m" end
-	def clr6;  "\e[37m#{self}\e[0m" end
+	def clr1; "\e[90m#{self}\e[0m" end  # gray
+	def clr2;  "\e[91m#{self}\e[0m" end # red
+	def clr3;  "\e[92m#{self}\e[0m" end # green
+	def clr4;  "\e[93m#{self}\e[0m" end # yellow
+	def clr5;  "\e[94m#{self}\e[0m" end # blue
+	def clr6;  "\e[95m#{self}\e[0m" end # purple
+	def clr7;  "\e[95m#{self}\e[0m" end # bright yellow
 end
 
 cmd = "/usr/local/bin/prowl.pl -apikey=#{prowl_api_key} -application=warframe -event='_EVENT_' -notification='_TEXT_'"
 
 def pretty_colors(str)
-	str.gsub!(/(\d+cr|\(\d+K\))/,'\1'.clr1)
-	str.gsub!(/(\d?x? Mutagen Mass)/i,'\1'.clr2)
-	str.gsub!(/(\d?x? Detonite Injector)/i,'\1'.clr3)
-	str.gsub!(/(\d?x? Mutalist Nav Coordinate)/i,'\1'.clr4)
+	str.gsub!(/(\d+cr|\(\d+K\))/,'\1'.clr3)
+	str.gsub!(/(\d?x? (Mutagen Mass|Fieldron|Detonite Injector|Mutalist Nav Coordinate))/i,'\1'.clr2)
 	str.gsub!(/([\w\s]+ \(Aura\))/i,'\1'.clr5)
-	str.gsub!(/([\w\s]+ \(Key\))/i,'\1'.clr6)
+	str.gsub!(/([\w\s]+ \(Key\))/i,'\1'.clr7)
 	str
 end
 
