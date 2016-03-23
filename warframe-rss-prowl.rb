@@ -7,7 +7,7 @@ require 'rss'
 require 'open-uri'
 
 search = ARGV[0]
-no_send = ARGV[1]
+prowlit = ARGV[1] && ARGV[1].match(/prowl/) ? true : false
 
 url = "http://content.warframe.com/dynamic/rss.php?#{Random.new_seed}"
 
@@ -52,7 +52,7 @@ open(url) do |rss|
 			next
 		elsif item.title.match(/#{search}/i)
 			guid = item.guid.to_s.gsub(/<.*?>(.*)<.*?>/,'\1')
-			if prowl_api_key && !no_send
+			if prowl_api_key && prowlit
 				if(!done.include?(guid))
 					`#{cmd.gsub(/_TEXT_/,item.title).gsub(/_EVENT_/,item.author)}`
 					@fn.puts guid
