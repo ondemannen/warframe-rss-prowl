@@ -1,7 +1,8 @@
+#!/usr/bin/ruby
 # Checks warframe RSS feed and based on a regular expression search will notify you through ProwlApp
 # Usage: ./warframe-rss-reader [regexp search] [no]
-#	If no search is specified all events will show up
-#	If the second argument is present the message will not be sent through prowlapp
+#        If no search is specified all events will show up
+#        If the second argument is present the message will not be sent through prowlapp
 require 'rss'
 require 'open-uri'
 
