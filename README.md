@@ -4,7 +4,7 @@ The script needs your Prowl API key located in the file ~/etc/prowl.cfg in order
 
 Script is Ruby, version 1.9.3
 
-Usage:
+<pre>Usage:
 ./warframe-rss-prowl.rb
 Example output:
 Alert (6900cr - Helene (Saturn) - 59m)
@@ -14,3 +14,4 @@ Outbreak (10000cr - Venera (Venus))
 Outbreak (10000cr - Kiliken (Venus))
 Outbreak (10000cr - PHORID SPAWN Fossa (Venus))
 Outbreak (2x Detonite Injector - Limtoc (Phobos))
+</pre>
