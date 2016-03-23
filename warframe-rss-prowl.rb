@@ -40,6 +40,7 @@ def pretty_colors(str)
 	str.gsub!(/(\d+cr|\(\d+K\))/,'\1'.clr1)
 	str.gsub!(/(\d?x? Mutagen Mass)/i,'\1'.clr2)
 	str.gsub!(/(\d?x? Detonite Injector)/i,'\1'.clr3)
+	str.gsub!(/(\d?x? Mutalist Nav Coordinate)/i,'\1'.clr4)
 	str
 end
 
