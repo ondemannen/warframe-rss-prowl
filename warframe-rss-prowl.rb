@@ -34,7 +34,7 @@ class String
 	def clr4;  "\e[35m#{self}\e[0m" end
 end
 
-cmd = "/usr/local/bin/prowl.pl -apikey=#{prowl_api_key} -application=warframe -event=alert -notification='_XXX_'"
+cmd = "/usr/local/bin/prowl.pl -apikey=#{prowl_api_key} -application=warframe -event='_EVENT_' -notification='_TEXT_'"
 
 def pretty_colors(str)
 	str.gsub!(/(\d+cr|\(\d+K\))/,'\1'.clr1)
@@ -53,7 +53,7 @@ open(url) do |rss|
 			guid = item.guid.to_s.gsub(/<.*?>(.*)<.*?>/,'\1')
 			if prowl_api_key && !no_send
 				if(!done.include?(guid))
-					`#{cmd.gsub(/_XXX_/,item.title)}`
+					`#{cmd.gsub(/_TEXT_/,item.title).gsub(/_EVENT_/,item.author)}`
 					@fn.puts guid
 				end
 			else
