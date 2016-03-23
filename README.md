@@ -14,4 +14,9 @@ Outbreak (10000cr - Venera (Venus))
 Outbreak (10000cr - Kiliken (Venus))
 Outbreak (10000cr - PHORID SPAWN Fossa (Venus))
 Outbreak (2x Detonite Injector - Limtoc (Phobos))
+
+Usage:
+./warframe-rss-prowl.rb corpus no
+Example output:
+Invasion, Corpus (35K) VS. Grineer (25K) - Acheron (Pluto)
 </pre>
