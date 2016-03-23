@@ -42,6 +42,8 @@ cmd = "/usr/local/bin/prowl.pl -apikey=#{prowl_api_key} -application=warframe -e
 def pretty_colors(str)
 	str.gsub!(/(\d+cr|\(\d+K\))/,'\1'.clr3)
 	str.gsub!(/(\d?x? (Mutagen Mass|Fieldron|Detonite Injector|Mutalist Nav Coordinate))/i,'\1'.clr2)
+	str.gsub!(/([\w\s]+ \(Resource\))/i,'\1'.clr1)
+	str.gsub!(/([\w\s]+ \(Blueprint\))/i,'\1'.clr6)
 	str.gsub!(/([\w\s]+ \(Aura\))/i,'\1'.clr5)
 	str.gsub!(/([\w\s]+ \(Key\))/i,'\1'.clr7)
 	str
