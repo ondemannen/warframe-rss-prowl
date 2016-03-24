@@ -46,6 +46,7 @@ def pretty_colors(str)
 	str.gsub!(/([\w\s]+ \(Blueprint\))/i,'\1'.clr6)
 	str.gsub!(/([\w\s]+ \(Aura\))/i,'\1'.clr5)
 	str.gsub!(/([\w\s]+ \(Key\))/i,'\1'.clr7)
+	str.gsub!(/([\w\s]+ \(Mod\))/i,'\1'.clr4)
 	str
 end
 
