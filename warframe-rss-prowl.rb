@@ -35,7 +35,8 @@ class String
 	def clr5;  "\e[94m#{self}\e[0m" end # blue
 	def clr6;  "\e[95m#{self}\e[0m" end # purple
 	def clr7;  "\e[95m#{self}\e[0m" end # bright yellow
-	def clr8;  "\e[33m#{self}\e[0m" end # bright yellow
+	def clr8;  "\e[33m#{self}\e[0m" end # dull yellow
+	def clr9;  "\e[34m#{self}\e[0m" end # dull yellow
 end
 
 cmd = "/usr/local/bin/prowl.pl -apikey=#{prowl_api_key} -application=warframe -event='_EVENT_' -notification='_TEXT_'"
@@ -48,7 +49,8 @@ def pretty_colors(str)
 	str.gsub!(/([\w\s]+ \(Aura\))/i,'\1'.clr5)
 	str.gsub!(/([\w\s]+ \(Key\))/i,'\1'.clr7)
 	str.gsub!(/([\w\s]+ \(Mod\))/i,'\1'.clr4)
-	str.gsub!(/((Forma|Orokin Reactor) Blueprint)/,'\1'.clr8)
+	str.gsub!(/([\w\s]+ \(Item\))/i,'\1'.clr9)
+	str.gsub!(/((Forma|Orokin (Reactor|Catalyst)) Blueprint)/,'\1'.clr8)
 	str
 end
 
